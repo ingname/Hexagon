@@ -20,7 +20,7 @@ def setting():
 window = Tk()
 window.title("Hexagon")
 window.geometry('900x500')
-window.iconbitmap('F:\game\Учеба\Практика\Git\Hexagon\ico\ico.ico')
+window.iconbitmap('.\ico\ico.ico')
 
 lbl = Label(window, text="Hexagon", font=("Ariak Bold", 50))
 # Font шрифт, число размер.
