@@ -3,14 +3,12 @@ from agent import agent
 
 
 class aiMode:
-    #Класс, связанный с игровым режимом ИИ
     def __init__(self, game, level):
         self.game = game
         self.level = level
         self.children = []
 
     def generate_next_level(self):
-        # Основная функция для создания игрового узла для оценки действий ИИ
         if len(self.children) == 0:
             if self.level == 0 or self.level == 2:
                 self.generate_next_level_for_player_move()
@@ -21,7 +19,6 @@ class aiMode:
                 child.generate_next_level()
 
     def generate_next_level_for_player_move(self):
-        # Он генерирует узел, если это ход игрока, 6 возможных ходов
         for move in range(1, 7):
             newGame = deepcopy(self.game)
             newGame.play_turn(move, create_agent=False)
@@ -29,8 +26,6 @@ class aiMode:
             self.children.append(node)
 
     def generate_next_level_for_agents(self):
-        # Он генерирует узел, если его AI поворачивается, его сложнее, потому что эта функция
-        # пробует угадать следующую новую позицию агента
         for y in range(0, len(self.game.map.map_area)):
             for x in range(0, len(self.game.map.map_area[y])):
                 if self.game.map.map_area[y][x].value == '':
@@ -45,7 +40,6 @@ class aiMode:
                     self.children.append(node)
 
     def evaluate(self):
-        # Самая важная функция в режиме ИИ, она оценивает прибыльность конкретного хода и его последствия
         if len(self.children) == 0:
             result = 0
             if self.game.finished:
