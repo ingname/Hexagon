@@ -82,5 +82,4 @@ class Ui_StartWindow(object):
         self.quit_button.setText(QCoreApplication.translate("StartWindow", u"Выход", None))
         self.nick_edit.setPlaceholderText(QCoreApplication.translate("StartWindow", u"       Ваш ник", None))
         self.label_text_nickname.setText(QCoreApplication.translate("StartWindow", u"Ник :", None))
-    # retranslateUi
 
